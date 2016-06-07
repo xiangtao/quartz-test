@@ -7,6 +7,8 @@ import org.quartz.Trigger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.UUID;
+
 import static org.quartz.CronScheduleBuilder.cronSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
@@ -24,8 +26,8 @@ public class TriggerBuilder {
 			LOGGER.info("Cron: "+cron);
 			trigger = newTrigger()
 					.withIdentity(
-							"11",
-							"11")
+							UUID.randomUUID().toString(),
+							UUID.randomUUID().toString())
 							.withSchedule(cronSchedule(cron).withMisfireHandlingInstructionFireAndProceed())
 							.withPriority(priotity).build();
 		} catch (Exception e) {

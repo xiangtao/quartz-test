@@ -47,7 +47,6 @@ public class TestSchedulerContainer {
             int taskId = 1;
             taskSchedulerContainer.updateTask(1, "0/2 * * * * ?", 1, 0);
             taskSchedulerContainer.updateTask(2, "0/4 * * * * ?", 1, 0);
-
             successCycleAndRegularNumber++;
         } catch (BuildCronTriggerException e) {
             expiredOrCronErrorNumber++;
