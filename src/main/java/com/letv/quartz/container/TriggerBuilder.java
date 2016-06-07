@@ -24,8 +24,8 @@ public class TriggerBuilder {
 			LOGGER.info("Cron: "+cron);
 			trigger = newTrigger()
 					.withIdentity(
-							String.valueOf(System.currentTimeMillis()),
-							String.valueOf(System.currentTimeMillis()))
+							"11",
+							"11")
 							.withSchedule(cronSchedule(cron).withMisfireHandlingInstructionFireAndProceed())
 							.withPriority(priotity).build();
 		} catch (Exception e) {

@@ -7,6 +7,8 @@ import org.quartz.impl.matchers.GroupMatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 /**
  * @author zhongdegen
  *
@@ -137,6 +139,14 @@ public final class TaskSchedulerContainer {
 				String jobGroup = jobKey.getGroup();
 				LOGGER.info("[jobName] : " + jobName + " [groupName] : "
 						+ jobGroup + ".");
+				List<Trigger> triggers = (List<Trigger>) scheduler.getTriggersOfJob(jobKey);
+				if(triggers==null){
+					System.out.println("------->>>[jobName] : " + jobName + " [groupName] : " + jobGroup + "." + " has no trigger");
+				}else{
+					for(Trigger trigger : triggers ){
+						System.out.println("------->>>[jobName] : " + jobName + " [groupName] : " + jobGroup + "." + " [trigger] : " + trigger.getNextFireTime());
+					}
+				}
 			}
 		}
 	}
