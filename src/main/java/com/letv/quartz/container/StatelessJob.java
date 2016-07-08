@@ -3,11 +3,13 @@ package com.letv.quartz.container;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.quartz.PersistJobDataAfterExecution;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
 
+@PersistJobDataAfterExecution
 public class StatelessJob extends AbstactJob implements Job{
 	
 	protected static final Logger LOGGER = LoggerFactory.getLogger(StatefulJob.class);
@@ -32,7 +34,7 @@ public class StatelessJob extends AbstactJob implements Job{
 		/*String node = new Configuration("common-config.xml").getDefault("scheduler_node", "");
 		SchedulerCenterClient.repeatTask(node, Integer.valueOf(taskID));*/
 		System.out.println("start =======" + taskID);
-		Thread.sleep(1000 * 60);
+		Thread.sleep(1000 * 1);
 		System.out.println("end ======="  + taskID);
 	}
 }

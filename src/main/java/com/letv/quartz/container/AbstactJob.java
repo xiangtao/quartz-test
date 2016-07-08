@@ -14,7 +14,7 @@ public abstract class AbstactJob {
 		try {
 			if(!StringUtils.isBlank(taskID)) {
 				call(taskID);
-				LOGGER.info(taskID+" next fire time is : "+nextFireTime);
+				//LOGGER.info(taskID+" next fire time is : "+nextFireTime);
 			} else {
 				LOGGER.error("taskInstanceId="+taskID);
 				throw new IllegalArgumentException("Repeat task id is null.");

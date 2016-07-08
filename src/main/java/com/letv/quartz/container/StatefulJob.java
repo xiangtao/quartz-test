@@ -38,7 +38,7 @@ public class StatefulJob extends AbstactJob implements Job{
 		/*String node = new Configuration("common-config.xml").getDefault("scheduler_node", "");
 		SchedulerCenterClient.repeatTask(node, Integer.valueOf(taskID));*/
 		System.out.println("start =======" + taskID);
-		Thread.sleep(1000 * 60);
+		Thread.sleep(1000 * 1);
 		System.out.println("end ======="  + taskID);
 
 	}
